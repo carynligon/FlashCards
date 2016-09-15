@@ -4,6 +4,7 @@ import _ from 'underscore';
 import store from '../store';
 
 import NewCard from './NewCard';
+import Nav from './Nav';
 
 export default React.createClass({
   getInitialState() {
@@ -96,6 +97,7 @@ export default React.createClass({
     }
     return (
       <main>
+        <Nav/>
         <section className="card">
           {button}
           <button onClick={this.newCard} id="add-card">New</button>
