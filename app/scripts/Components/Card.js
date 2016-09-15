@@ -16,15 +16,24 @@ export default React.createClass({
     this.setState({showForm: true});
   },
   setPracticeCards() {
+    let practiceCards = [];
+    store.morePractice.forEach((model) => {
+      practiceCards.push(model.get('question')._obj);
+    });
+    console.log(practiceCards);
     this.setState({
       showPractice: true,
-      practice: store.morePractice.toJSON(),
+      practice: practiceCards,
       index: 0
     });
   },
   practiceSet() {
     store.morePractice.on('update', this.setPracticeCards);
-    store.morePractice.fetch();
+    store.morePractice.fetch({
+      data: {
+        "resolve": "question"
+      }
+    });
   },
   fullSet() {
     this.setState({showPractice: false, index: 0})
@@ -47,6 +56,10 @@ export default React.createClass({
   componentDidMount() {
     store.cardsCollection.on('update', this.updateState);
     store.cardsCollection.fetch();
+  },
+  componentWillUnmount() {
+    store.cardsCollection.off('update', this.updateState);
+    store.morePractice.off('update', this.setPracticeCards);
   },
   render() {
     console.log(this.state);
