@@ -1,0 +1,46 @@
+.card {
+  #add-card {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .new-card-form {
+    width: 600px;
+    margin: 5rem auto 0 auto;
+    text-align: center;
+    input {
+      width: 80%;
+      padding: 5px;
+      margin: 5px 0;
+    }
+    #submit-card {
+      display: block;
+      margin: 1rem auto 0 auto;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  #card-wrapper {
+    width: 400px;
+    height: 250px;
+    margin: 5rem auto 0rem auto;
+    text-align: center;
+    border: 1px solid #000;
+    p:first-child {
+      line-height: 250px;
+      margin: 0;
+    }
+  }
+  #next-card {
+    width: 50px;
+    display: block;
+    margin: 1rem auto 0 auto;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -40,19 +40,22 @@ export default React.createClass({
     if (this.state.showForm) {
       form = <NewCard/>
     }
-    if (this.state.cards) {
+    if (this.state.cards && !this.state.showAnswer) {
       card = <p onClick={this.showAnswer}>{this.state.cards[this.state.index].question}</p>
     }
     if (this.state.showAnswer) {
-      answer = <p onClick={this.hideAnswer}>{this.state.cards[this.state.index].answer}</p>
+      card = <p onClick={this.hideAnswer}>{this.state.cards[this.state.index].answer}</p>
     }
     return (
       <main>
-        <button onClick={this.newCard} id="add-card">New</button>
-        {form}
-        {card}
-        {answer}
-        <button onClick={this.nextCard} id="next-card">Next</button>
+        <section className="card">
+          <button onClick={this.newCard} id="add-card">New</button>
+          {form}
+          <div id="card-wrapper">
+            {card}
+          </div>
+          <button onClick={this.nextCard} id="next-card">Next</button>
+        </section>
       </main>
     );
   }
