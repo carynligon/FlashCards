@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'underscore';
 
 import store from '../store';
 
@@ -23,7 +24,7 @@ export default React.createClass({
     console.log(practiceCards);
     this.setState({
       showPractice: true,
-      practice: practiceCards,
+      practice: _.shuffle(practiceCards),
       index: 0
     });
   },
@@ -63,7 +64,7 @@ export default React.createClass({
     this.setState({showAnswer: false});
   },
   updateState() {
-    this.setState({cards: store.cardsCollection.toJSON()});
+    this.setState({cards: _.shuffle(store.cardsCollection.toJSON())});
   },
   componentDidMount() {
     store.cardsCollection.on('update', this.updateState);
