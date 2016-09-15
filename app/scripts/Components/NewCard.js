@@ -10,10 +10,27 @@ export default React.createClass({
   render() {
     return (
       <form className="new-card-form" onSubmit={this.makeCard}>
-        <input type="text" name="question" id="question" placeholder="question" ref="question"/>
-        <input type="text" name="answer" id="answer" placeholder="answer" ref="answer"/>
-        <input type="text" name="category" id="category" placeholder="category" ref="category"/>
-        <input type="text" name="difficulty" id="difficulty" placeholder="difficulty" ref="difficulty"/>
+        <input type="text" name="question" id="question" placeholder="question" ref="question" required/>
+        <input type="text" name="answer" id="answer" placeholder="answer" ref="answer" required/>
+        <div className="category-wrapper">
+          <label htmlFor="category">Category</label>
+          <select id="category" name="category" ref="category" required>
+            <option></option>
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>JS</option>
+            <option>Misc.</option>
+          </select>
+        </div>
+        <div className="difficulty-wrapper">
+          <label htmlFor="category">Difficulty</label>
+          <select id="difficulty" name="difficulty" ref="difficulty" required>
+            <option></option>
+            <option>easy</option>
+            <option>intermediate</option>
+            <option>hard</option>
+          </select>
+        </div>
         <button type="submit" id="submit-card">Submit</button>
       </form>
     );

@@ -16,6 +16,14 @@
       padding: 5px;
       margin: 5px 0;
     }
+    select {
+      margin-left: 1%;
+    }
+    div {
+      width: 80%;
+      margin: 0 auto;
+      text-align: left;
+    }
     #submit-card {
       display: block;
       margin: 1rem auto 0 auto;
@@ -35,12 +43,15 @@
       margin: 0;
     }
   }
-  #next-card {
-    width: 50px;
-    display: block;
+  .btn-wrapper {
+    width: 200px;
     margin: 1rem auto 0 auto;
-    &:hover {
-      cursor: pointer;
+    text-align: center;
+    button {
+      margin: 5px;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
