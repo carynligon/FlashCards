@@ -26,9 +26,8 @@ export default React.createClass({
         height: '60vh',
         marginTop: '12.5%',
         overflow: 'scroll'
-      };
-    }
-    return(
+    };
+    return (
       <div className="modal-container" style={containerStyles} onClick={this.closeModal}>
         <div className="modal-content" style={contentStyles}>
           {this.props.children}

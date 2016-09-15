@@ -15,7 +15,7 @@ export default React.createClass({
     }
   },
   newCard() {
-    this.setState({showForm: true});
+    this.setState({showForm: !this.state.showForm});
   },
   setPracticeCards() {
     let practiceCards = [];
@@ -83,7 +83,7 @@ export default React.createClass({
     let answer;
     let button = <button onClick={this.practiceSet} id="practice-cards">Practice</button>;
     if (this.state.showForm) {
-      form = <NewCard/>
+      form = <NewCard hideForm={this.newCard}/>
     }
     if (this.state.cards && !this.state.showAnswer && !this.state.showPractice) {
       card = <p onClick={this.showAnswer}>{this.state.cards[this.state.index].question}</p>;
@@ -96,21 +96,18 @@ export default React.createClass({
       card = <p onClick={this.hideAnswer}>{this.state.cards[this.state.index].answer}</p>;
     }
     return (
-      <main>
-        <Nav/>
-        <section className="card">
-          {button}
-          <button onClick={this.newCard} id="add-card">New</button>
-          {form}
-          <div id="card-wrapper">
-            {card}
-          </div>
-          <div className="btn-wrapper">
-            <button onClick={this.morePractice} id="practice-btn">Needs Practice</button>
-            <button onClick={this.nextCard} id="next-card">Next</button>
-          </div>
-        </section>
-      </main>
+      <section className="card">
+        {button}
+        <button onClick={this.newCard} id="add-card">New</button>
+        {form}
+        <div id="card-wrapper">
+          {card}
+        </div>
+        <div className="btn-wrapper">
+          <button onClick={this.morePractice} id="practice-btn">Needs Practice</button>
+          <button onClick={this.nextCard} id="next-card">Next</button>
+        </div>
+      </section>
     );
   }
 });

@@ -1,11 +1,11 @@
 import React from 'react';
 import {Router, Route, hashHistory} from 'react-router';
 
-import Card from './Components/Card';
+import App from './Components/App';
 
 const router = (
   <Router history={hashHistory}>
-    <Route path="/" component={Card}/>
+    <Route path="/" component={App}/>
   </Router>
 );
 

@@ -1,9 +1,8 @@
 import React from 'react';
-import {Link, hashHistory} from 'react-router';
 
-import store from '../../store';
+import store from '../store';
 
-import UserModal from '../UserModal';
+import Modal from './Modal';
 
 export default React.createClass({
   getInitialState() {
@@ -26,6 +25,7 @@ export default React.createClass({
   },
   render() {
     let styles;
+    console.log(this.props);
     let errorMsg;
     if (this.state.error) {
       styles = {
@@ -48,7 +48,6 @@ export default React.createClass({
         </div>
         {errorMsg}
         <button type="submit" value="submit" id="submit-login-btn">submit</button>
-        <p id="switch-login">Don't have an account?<span id="signup-btn" onClick={this.props.showSignup}>Sign up!</span></p>
       </form>
       </Modal>
     );

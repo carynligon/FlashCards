@@ -6,12 +6,13 @@ export default React.createClass({
   makeCard(e) {
     e.preventDefault();
     store.cardsCollection.newCard(this.refs.question.value, this.refs.answer.value, this.refs.category.value, this.refs.difficulty.value);
+    this.props.hideForm();
   },
   render() {
     return (
       <form className="new-card-form" onSubmit={this.makeCard}>
         <input type="text" name="question" id="question" placeholder="question" ref="question" required/>
-        <input type="text" name="answer" id="answer" placeholder="answer" ref="answer" required/>
+        <textarea name="answer" id="answer" placeholder="answer" ref="answer" required></textarea>
         <div className="category-wrapper">
           <label htmlFor="category">Category</label>
           <select id="category" name="category" ref="category" required>

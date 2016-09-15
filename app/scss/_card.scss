@@ -11,7 +11,7 @@
     width: 600px;
     margin: 5rem auto 0 auto;
     text-align: center;
-    input {
+    input, textarea {
       width: 80%;
       padding: 5px;
       margin: 5px 0;
@@ -39,8 +39,7 @@
     text-align: center;
     border: 1px solid #000;
     p:first-child {
-      line-height: 250px;
-      margin: 0;
+      margin-top: 26%;
     }
   }
   .btn-wrapper {
