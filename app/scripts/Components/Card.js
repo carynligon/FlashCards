@@ -6,10 +6,23 @@ import NewCard from './NewCard';
 
 export default React.createClass({
   getInitialState() {
-    return {showForm: false}
+    return {
+      showForm: false,
+      index: 0,
+      showAnswer: false
+    }
   },
   newCard() {
     this.setState({showForm: true})
+  },
+  nextCard() {
+    this.setState({index: this.state.index + 1})
+  },
+  showAnswer() {
+    this.setState({showAnswer: true});
+  },
+  hideAnswer() {
+    this.setState({showAnswer: false});
   },
   updateState() {
     this.setState({cards: store.cardsCollection.toJSON()})
@@ -22,26 +35,24 @@ export default React.createClass({
     console.log(this.state);
     let form;
     let questions;
+    let card;
+    let answer;
     if (this.state.showForm) {
       form = <NewCard/>
     }
     if (this.state.cards) {
-      questions = this.state.cards.map((card,i) => {
-        return (
-          <li key={i}>
-          <p>{card.question}</p>
-          <p>{card.answer}</p>
-          </li>
-        )
-      })
+      card = <p onClick={this.showAnswer}>{this.state.cards[this.state.index].question}</p>
+    }
+    if (this.state.showAnswer) {
+      answer = <p onClick={this.hideAnswer}>{this.state.cards[this.state.index].answer}</p>
     }
     return (
       <main>
         <button onClick={this.newCard} id="add-card">New</button>
         {form}
-        <ul id="question-list">
-          {questions}
-        </ul>
+        {card}
+        {answer}
+        <button onClick={this.nextCard} id="next-card">Next</button>
       </main>
     );
   }
