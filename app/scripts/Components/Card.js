@@ -42,7 +42,19 @@ export default React.createClass({
     store.morePractice.addCard(this.state.cards[this.state.index]);
   },
   nextCard() {
-    this.setState({index: this.state.index + 1});
+    if (this.state.showPractice) {
+      if (this.state.index + 1 >= this.state.practice.length) {
+        this.setState({index: 0})
+      } else {
+        this.setState({index: this.state.index + 1});
+      }
+    } else {
+      if ((this.state.index + 1) >= this.state.cards.length) {
+        this.setState({index: 0})
+      } else {
+        this.setState({index: this.state.index + 1});
+      }
+    }
   },
   showAnswer() {
     this.setState({showAnswer: true});
