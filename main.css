@@ -1,9 +1,22 @@
-.card #add-card {
-  position: absolute;
-  right: 30px;
-  top: 30px; }
-  .card #add-card:hover {
-    cursor: pointer; }
+.card #add-card, .card #practice-cards, .card #submit-card {
+  background: #2F4858;
+  color: #fff;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  background: #FE5F55;
+  font-size: 0.8rem; }
+  .card #add-card:hover, .card #practice-cards:hover, .card #submit-card:hover {
+    cursor: pointer;
+    background: #fff;
+    color: #FE5F55;
+    outline: none; }
+.card #practice-cards {
+  margin: 10px;
+  background: #41D3BD; }
+  .card #practice-cards:hover {
+    background: #fff;
+    color: #41D3BD; }
 .card .new-card-form {
   width: 600px;
   margin: 5rem auto 0 auto;
@@ -27,20 +40,43 @@
   width: 400px;
   height: 250px;
   margin: 5rem auto 0rem auto;
+  background: #fff;
   text-align: center;
-  border: 1px solid #000; }
-  .card #card-wrapper p:first-child {
-    margin-top: 26%; }
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px; }
+  .card #card-wrapper p {
+    width: 90%;
+    margin: 0 auto; }
 .card .btn-wrapper {
   width: 200px;
   margin: 1rem auto 0 auto;
   text-align: center; }
   .card .btn-wrapper button {
-    margin: 5px; }
+    margin: 5px;
+    background: #fff;
+    color: #FE5F55;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    font-size: 0.8rem; }
     .card .btn-wrapper button:hover {
-      cursor: pointer; }
+      cursor: pointer;
+      background: #FE5F55;
+      color: #fff;
+      transform: scale(1.1);
+      outline: none; }
+    .card .btn-wrapper button:focus {
+      outline: none; }
+  .card .btn-wrapper #next-card {
+    color: #41D3BD; }
+    .card .btn-wrapper #next-card:hover {
+      background: #41D3BD;
+      color: #fff; }
 
 body {
-  margin: 0; }
+  margin: 0;
+  background: #6550c9; }
 
 /*# sourceMappingURL=main.css.map */
